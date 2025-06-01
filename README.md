@@ -1,2 +1,317 @@
-# meme2.0
-delayu sait
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crystal Auto Detailing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1605559424843-1b7e6c3b6e0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #ffffff;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero-content a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #ffcc00;
+      color: #000000;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .hero-content a:hover {
+      background-color: #e6b800;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 5rem 0;
+      background-color: #111111;
+    }
+    .services h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    .service-card h3 {
+      margin-bottom: 1rem;
+      color: #ffcc00;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      padding: 5rem 0;
+      background-color: #0a0a0a;
+    }
+    .pricing h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .pricing-table {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .pricing-card {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-10px);
+    }
+    .pricing-card h3 {
+      margin-bottom: 1rem;
+      color: #ffcc00;
+    }
+    .pricing-card p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #cccccc;
+    }
+    
+pricing-card span {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Calculator Section */
+    .calculator {
+      padding: 5rem 0;
+      background-color: #111111;
+    }
+    .calculator h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .calculator-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    .calculator-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .calculator-form select,
+    .calculator-form input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #2a2a2a;
+      color: #ffffff;
+    }
+    .calculator-form button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #ffcc00;
+      color: #000000;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .calculator-form button:hover {
+      background-color: #e6b800;
+    }
+    .calculator-result {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #ffcc00;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000000;
+      padding: 2rem 0;
+      text-align: center;
+      color: #666666;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="nav-logo">CRYSTAL AUTO</div>
+      <nav class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#pricing">Цены</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Премиальный детейлинг в Санкт-Петербурге</h1>
+      <p>Эксклюзивный уход за вашим автомобилем с использованием лучших материалов и технологий</p>
+      <a href="#calculator">Рассчитать стоимость</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2>Наши Услуги</h2>
+      <div class="service-cards">
+        <div class="service-card">
+          <h3>Оклейка полиуретановой пленкой</h3>
+          <p>Защита кузова от сколов и царапин с использованием высококачественных пленок</p>
+        </div>
+        <div class="service-card">
+          <h3>Керамическое покрытие</h3>
+          <p>Придание кузову блеска и защиты от внешних воздействий на длительный срок</p>
+        </div>
+        <div class="service-card">
+          <h3>Полировка кузова</h3>
+          <p>Удаление мелких царапин и восстановление первоначального блеска автомобиля</p>
+        </div>
+        <div class="service-card">
+          <h3>Химчистка салона</h3>
+          <p>Глубокая очистка салона с использованием гипоаллергенных средств</p>
+        </div>
+        <div class="service-card">
+          <h3>Тонировка стекол</h3>
+          <p>Профессион
